@@ -1,51 +1,65 @@
-var friendData=require("../data/friends.js");
-var path=require("path");
-
-var compatico = 0;
+var friendData = require("../data/friends.js");
 
 module.exports = function(app) {
 
-// GET route used to display JSON of all possible friends
+  // GET route used to display JSON of all possible friends
   app.get('./api/friends', function(req, res) {
-    res.json(friends);
+    res.json(friendData);
   });
 
-// POST route used to handle incoming results and compatibility
+  // POST route used to handle incoming results and compatibility
   app.post('/api/friends', function(req, res) {
 
-    var match = {
+    var theOne ={
       name: "",
       image: "",
-      matchScore: 1000
+      totDiff: 1000
     };
 
     var userInfo = req.body;
-    var userName = userInfo.name;
-    var userImage = userInfo.image;
-    var userScore = userInfo.score;
+    var diff = [];
 
-    var diff = 0;
 
-// Intial Loop for first person
-    for (var i = 0; i < [friends].length - 1; i++) {
-      console.log(friends[i].name);
-      diff = 0;
+    // Intial Loop for first person
 
-// Second for loop for person to match against
-      for (var j = 0; j < 10; j++) {
-        if (diff <= match.friend.Difference) {
+    if (friendData.length > 1) {
+      friendData.forEach(function(user) {
+        var totalDiff = 0;
 
-          match.name = friends[i].name;
-          match.photo = friends[i].photo;
-          match.matchScore = diff;
+        // for (var i = 0; i < [friendData].length - 1; i++) {
+        //   console.log(friendData[i].name);
+        //   diff = 0;
+
+        // Compare total to other users
+        for (var i = 0; i < userInfo.answers; i++) {
+
+          var scoreOne = user.answers[i];
+          var scoreOther = scoreOther.answers[i];
+          var difference = scoreOne - scoreOther;
+          totalDiff = diff;
+        }
+        // var userScore = userInfo.score;
+
+        diff.push(totalDiff);
+      });
+
+      var closestBff = Math.min.apply(null, diff);
+
+      var bff = [];
+
+      // Second for loop for person to match against
+      for (var i = 0; i < diff.length; i++) {
+        if (diff[i] === closestBff) {
+          bff.push(friendData[i]);
         }
       }
+
+      res.json(bff);
+    } else {
+
+      res.json(theOne);
     }
-
-    friends.push(userInfo);
-
-    res.json(match);
-
+    friendData.push(userInfo);
   });
 
 };

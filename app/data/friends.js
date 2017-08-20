@@ -1,5 +1,5 @@
 // Initial creation of users based on scoring guidelines given
-var friends = [
+module.exports = [
   {
     "name":"John",
     "photo":" ",
@@ -96,7 +96,4 @@ var friends = [
   1
 ]
 }
-]
-
-// Export the data array
-module.exports = friends;
+];

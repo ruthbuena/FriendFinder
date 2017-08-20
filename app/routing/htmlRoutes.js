@@ -8,6 +8,7 @@ module.exports = function(app){
     res.sendFile(path.join(__dirname + '/../public/survey.html'));
   });
 
+
 // USE route which will display home page
   app.use(function(req,res){
     res.sendFile(path.join(__dirname + '/../public/home.html'));
