@@ -177,7 +177,7 @@
 			</div>
 			<div class="modal-body">
 				<h2 id="wingMan"></h2>
-				<img id="wingManImg" src="https://az616578.vo.msecnd.net/files/responsive/cover/main/desktop/2015/11/16/635832294154863958204699940_mister_rogers_neighborhood_you_are_special_tv_show_t_shirt.imgopt1000x70.jpg" onError="this.src='https://mi-od-live-s.legocdn.com/r/www/r/catalogs/-/media/catalogs/characters/lbm%20characters/primary/70900_1to1_batman_360_480.png?l.r2=1668006940'" width=500px alt="Best Friend">
+				<img id="wingManImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOg9W0_uOTfmDI05GPfTsS4nuwfrkhX99jqsWWsCpZhTxnpQ3U" onError="this.src='https://mi-od-live-s.legocdn.com/r/www/r/catalogs/-/media/catalogs/characters/lbm%20characters/primary/70900_1to1_batman_360_480.png?l.r2=1668006940'" width=500px alt="Best Friend">
 			</div>
 		</div>
 	</div>
@@ -189,13 +189,31 @@
 		var userInput = {
 			name: $('#name').val().trim(),
 			photo: $('#photo').val().trim(),
-			scores: [$('#question01').val().trim(), $('#question02').val().trim(), $('#question03').val().trim(), $('#question04').val().trim(), $('#question05').val().trim(), $('#question06').val().trim(), $('#question07').val().trim(), $('#question08').val().trim(), $('#question09').val().trim(), $('#question10').val().trim()]
+			scores: [$('#question01').val().trim(),
+			$('#question02').val().trim(),
+			$('#question03').val().trim(),
+			$('#question04').val().trim(),
+			$('#question05').val().trim(),
+			$('#question06').val().trim(),
+			$('#question07').val().trim(),
+			$('#question08').val().trim(),
+			$('#question09').val().trim(),
+			$('#question10').val().trim()
+		]
 		}
+
 		var currentURL = window.location.origin;
 		$.post(currentURL + '/api/friends', userInput, function(data) {
-			$("#wingMan").text(data.name);
-			$("#wingManImg").attr("src", data.photo);
-			$("#wingModal").modal("show");
+			$('#question01').val('');
+			$('#question02').val('');
+			$('#question03').val('');
+			$('#question04').val('');
+			$('#question05').val('');
+			$('#question06').val('');
+			$('#question07').val('');
+			$('#question08').val('');
+			$('#question09').val('');
+			$('#question10').val('');
 		});
 		return false;
 	});

@@ -1,8 +1,8 @@
 // Initial creation of users based on scoring guidelines given
 module.exports = [
   {
-    "name":"John",
-    "photo":" ",
+    "name":"Joey",
+    "photo":"http://people.emich.edu/awice/FRIENDS/Profiles/Joey.jpg",
     "scores": [
       5,
       1,
@@ -17,82 +17,82 @@ module.exports = [
     ]
   },
   {
-    "name":"Sally",
-    "photo":" ",
+    "name":"Rachel",
+    "photo":"http://people.emich.edu/awice/FRIENDS/Profiles/Rachel.jpg",
     "scores": [
-      5,
-      1,
-      4,
-      4,
-      5,
+      2,
       1,
       2,
+      3,
+      1,
+      1,
+      3,
       5,
-      4,
+      2,
       1
     ]
   },
   {
-    "name":"Laura",
-    "photo":" ",
+    "name":"Phoebe",
+    "photo":"http://people.emich.edu/awice/FRIENDS/Profiles/Phoebe.jpg",
     "scores": [
-      5,
-      1,
-      4,
-      4,
-      5,
-      1,
       2,
+      3,
+      1,
+      3,
       5,
-      4,
-      1
+      2,
+      2,
+      2,
+      1,
+      2
     ]
   },
   {
-    "name":"Matt",
-    "photo":" ",
+    "name":"Ross",
+    "photo":"http://people.emich.edu/awice/FRIENDS/Profiles/Ross.jpg",
     "scores": [
-    5,
-    1,
-    4,
-    4,
-    5,
     1,
     2,
-    5,
+    3,
     4,
+    2,
+    1,
+    3,
+    5,
+    1,
     1
   ]
 },
 {
-  "name":"Caroline",
-"photo":" ",
+  "name":"Monica",
+"photo":"http://people.emich.edu/awice/FRIENDS/Profiles/Monica.jpg",
 "scores": [
-  5,
+  1,
   1,
   4,
-  4,
-  5,
   1,
   2,
-  5,
+  1,
   4,
+  1,
+  3,
   1
 ]
 },
 {
-  "name":"Sean",
-"photo":" ",
+  "name":"Chandler",
+"photo":"http://people.emich.edu/awice/FRIENDS/Profiles/Chandler.jpg",
 "scores": [
-  5,
   1,
-  4,
-  4,
-  5,
   1,
   2,
-  5,
   4,
+  2,
+  1,
+  4,
+  5,
+  3,
   1
 ]
 }
