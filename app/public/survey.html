@@ -204,16 +204,19 @@
 
 		var currentURL = window.location.origin;
 		$.post(currentURL + '/api/friends', userInput, function(data) {
-			$('#question01').val('');
-			$('#question02').val('');
-			$('#question03').val('');
-			$('#question04').val('');
-			$('#question05').val('');
-			$('#question06').val('');
-			$('#question07').val('');
-			$('#question08').val('');
-			$('#question09').val('');
-			$('#question10').val('');
+			$("#wingMan").text(data.name);
+			$("#wingManImg").attr("src", data.photo);
+			$("wingModal").modal("show");
+			// $('#question01').val('');
+			// $('#question02').val('');
+			// $('#question03').val('');
+			// $('#question04').val('');
+			// $('#question05').val('');
+			// $('#question06').val('');
+			// $('#question07').val('');
+			// $('#question08').val('');
+			// $('#question09').val('');
+			// $('#question10').val('');
 		});
 		return false;
 	});
