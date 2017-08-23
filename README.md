@@ -2,7 +2,7 @@
 Friend Finder full-stack dating app that uses Node and Express Servers
 
 
-Application landing page of application deployed using Heroku:
+Application landing page of application deployed using Heroku: https://serene-ridge-62486.herokuapp.com/
 ![MainPage.png](assets/images/MainPage.png)
 
 Survey Page with Questions:
