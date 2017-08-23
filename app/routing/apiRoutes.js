@@ -1,4 +1,3 @@
-var path = require("path");
 
 var friendData = require("../data/friends.js");
 // var userInput = require("../public/survey.html");
@@ -12,62 +11,92 @@ module.exports = function(app) {
 
   // POST route used to handle incoming results and compatibility
   app.post('/api/friends', function(req, res) {
+    var theOne=req.body;
 
-    friendData.push(req.body);
-
-    var diff = [];
-
-    for(var x=0; x<req.body.scores.length; x++){
-      diff.push(parseInt(req.body.scores[x]));
+    for(var i=0; i<theOne.scores.length; i++){
+      if(theOne.scores[i] == "1 (Strongly Disagree)"){
+        theOne.scores[i] = 1;
+      } else if (theOne.scores[i] == "5 (Strongly Agree)"){
+        theOne.scores[i] = 5;
+      } else {
+        theOne.scores[i] = parseInt(theOne.scores[i]);
+      }
     }
 
-    var theOne = {
-      name: req.body.name,
-      image: req.body.photo,
-      scores: diff
-    };
+    // friendData.push(req.body);
 
-    var bff = [];
+    // var diff = [];
+    //
+    // for(var x=0; x<req.body.scores.length; x++){
+    //   diff.push(parseInt(req.body.scores[x]));
+    // }
+    //
+    // var theOne = {
+    //   name: req.body.name,
+    //   image: req.body.photo,
+    //   scores: diff
+    // };
+    //
+    // var bff = [];
 
 
   //
   //   // Intial Loop for first person
-  //
-  //   if (friendData.length > 1) {
-  //     friendData.forEach(function(user) {
-  //       var totalDiff = 0;
-  //
-  //       // for (var i = 0; i < [friendData].length - 1; i++) {
-  //       //   console.log(friendData[i].name);
-  //       //   diff = 0;
-  //
-        // Compare total to other users
-        for (var i = 0; i < friendData.length-1; i++) {
 
-          var diffUser = 0;
-          var oneUser = [];
+    var diff = [];
 
-          for(var j=0; j<friendData[i].scores.length; j++){
-            var allLeft= Math.abs(friendData[i].scores[j]-theOne.scores[j]);
-            oneUser.push(allLeft);
-            diffUser+=allLeft;
+    for (var i = 0; i<friendData.length; i++) {
+      var goodFriend = friendData[i];
+
+      // friendData.forEach(function(user) {
+        var totalDiff = 0;
+
+        for (var j = 0; j < goodFriend.scores.length; j++) {
+          var balance = Math.abs(goodFriend.scores[j] - theOne.scores[j]);
+          totalDiff += balance;
+        }
+        diff[i]=totalDiff;
+      }
+
+        //   console.log(friendData[i].name);
+        //   diff = 0;
+        //
+        // // Compare total to other users
+        // for (var i = 0; i < friendData.length-1; i++) {
+
+          var diffUser = diff[0];
+          var bff = 0;
+
+          for(var i=1; i<diff.length; i++){
+            if(diff[i]<diffUser){
+              diffUser = diff[i];
+              bff=i;
+            }
           }
 
-          bff.push(diffUser);
+          friendData.push(theOne);
 
-          Array.min=function(bff){
-            return Math.min.apply(Math, bff);
-          };
+          res.json(friendData[bff]);
 
-          var scoreOne=Array.min(bff);
-          var scoreOther=bff.indexOf(scoreOne);
-          var funOne=friendData[scoreOther];
+          //   var allLeft= Math.abs(friendData[i].scores[j]-theOne.scores[j]);
+          //   oneUser.push(allLeft);
+          //   diffUser+=allLeft;
+          // }
 
-          res.json(funOne);
-
-          diffUser=0;
-      }
-    })
+          // bff.push(diffUser);
+          //
+          // Array.min=function(bff){
+          //   return Math.min.apply(Math, bff);
+          // };
+          //
+          // var scoreOne=Array.min(bff);
+          // var scoreOther=bff.indexOf(scoreOne);
+          // var funOne=friendData[scoreOther];
+          //
+          // res.json(funOne);
+          //
+          // diffUser=0;
+      })
   }
 
 //           var scoreOne = user.answers[i];
