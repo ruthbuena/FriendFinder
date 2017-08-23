@@ -206,17 +206,7 @@
 		$.post(currentURL + '/api/friends', userInput, function(data) {
 			$("#wingMan").text(data.name);
 			$("#wingManImg").attr("src", data.photo);
-			$("wingModal").modal("show");
-			// $('#question01').val('');
-			// $('#question02').val('');
-			// $('#question03').val('');
-			// $('#question04').val('');
-			// $('#question05').val('');
-			// $('#question06').val('');
-			// $('#question07').val('');
-			// $('#question08').val('');
-			// $('#question09').val('');
-			// $('#question10').val('');
+			$("#wingModal").modal("show");
 		});
 		return false;
 	});
