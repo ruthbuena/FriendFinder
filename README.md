@@ -3,13 +3,13 @@ Friend Finder full-stack dating app that uses Node and Express Servers
 
 
 Application landing page of application deployed using Heroku:
-![MainPage.png]
+![MainPage.png](assets/images/MainPage.png)
 
 Survey Page with Questions:
-![Survey.png]
+![Survey.png](assets/images/Survey.png)
 
 Results after completing survey questions:
-![RequestFriend.png]
+![RequestFriend.png](assets/images/RequestFriend.png)
 
 API page listing friends in JSON:
-![API.png]
+![API.png](assets/images/API.png)
