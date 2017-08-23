@@ -1,5 +1,5 @@
 // Initial creation of users based on scoring guidelines given
-module.exports = [
+var friends = [
   {
     "name":"Joey",
     "photo":"http://people.emich.edu/awice/FRIENDS/Profiles/Joey.jpg",
@@ -97,3 +97,5 @@ module.exports = [
 ]
 }
 ];
+
+module.exports=friends;
